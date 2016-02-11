@@ -60,3 +60,7 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+/MHPautomatiz/группы.txt
+/MHPautomatiz/единицы.txt
+/MHPautomatiz/тмц.txt
+/MHPautomatiz/getJsonString_out.json

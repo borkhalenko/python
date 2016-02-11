@@ -1,0 +1,3 @@
+"http://sql.dream-foods.biz:9012/UOMRows/GetList?UserName=CRM&Password=fcbe8cb541789cb6cdf605a627b6f680&Culture=ru"
+"http://sql.dream-foods.biz:9012/GoodsCategoryRows/GetList?UserName=CRM&Password=fcbe8cb541789cb6cdf605a627b6f680&Culture=ru"
+"http://sql.dream-foods.biz:9012/GoodsRows/GetListForReplication?PrevReplicationTime=2014-06-24%2013:13:56&UserName=CRM&Password=fcbe8cb541789cb6cdf605a627b6f680&Culture=ru"
