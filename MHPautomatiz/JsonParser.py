@@ -19,7 +19,7 @@ def ParseUom(jstr):
     res = []
     jobj = json.loads(jstr)
     for item in jobj:
-        res.append(str(item['_UOMId'])+";"+str(item['_UOMName']))
+        res.append(str(item['_UOMId'])+";"+str(item['_UOMName'])+";")
     return res
 
 def ParseGoodsCategories(jstr):
@@ -28,7 +28,7 @@ def ParseGoodsCategories(jstr):
     for item in jobj:
         res.append(str(item['_TopGoodsCategoryId'])+";"
                    +str(item['_GoodsCategoryId'])+";"
-                   +str(item['_GoodsCategoryName']))
+                   +str(item['_GoodsCategoryName'])+";")
     return res
 
 def ParseGoodsItems(jstr):
@@ -45,5 +45,5 @@ def ParseGoodsItems(jstr):
                    +str(item['_GoodsCategory']['_GoodsCategoryId'])+";"
                    +str(IsClosed)+";"
                    +str(item['_Comment'])+";"
-                   +str(item['_AnalyticCode']))
+                   +str(item['_AnalyticCode'])+";")
     return res    
