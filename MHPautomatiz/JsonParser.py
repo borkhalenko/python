@@ -26,9 +26,9 @@ def ParseGoodsCategories(jstr):
     res = []
     jobj = json.loads(jstr)
     for item in jobj:
-        res.append(str(item['_TopGoodsCategoryId'])+";"
-                   +str(item['_GoodsCategoryId'])+";"
-                   +str(item['_GoodsCategoryName'])+";")
+        res.append(str(item['_GoodsCategoryId'])+";"
+                   +str(item['_GoodsCategoryName'])+";"
+                   +str(item['_TopGoodsCategoryId'])+";")
     return res
 
 def ParseGoodsItems(jstr):
