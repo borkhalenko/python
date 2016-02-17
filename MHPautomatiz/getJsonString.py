@@ -39,7 +39,6 @@ def __main__():
         import gzip
         import json
         import JsonParser
-        import switch
         #from xml2json import json2xml
     except Exception as e:
         err.write("Error when importing some libs. Error message: "+str(e))
