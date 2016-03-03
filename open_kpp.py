@@ -2,9 +2,17 @@
 #author: Borkhalenko Oleg
 #email: borkhalenko@gmail.com
 
-#this script requires pyserial python library
+#Цей скрипт потребує сторонню бібліотеку pyserial
 #https://pythonhosted.org/pyserial/index.html
-#install: pip install pyserial
+#install from cmd: pip install pyserial
+
+#Параметри:
+# 1 - ім'я СОМ-порта
+# 2 - команда відкриття (0 - закрити, 1 - відкрити)
+#Приклад виклику скрипта
+#python.py open_kpp.py COM4 1
+#python.py open_kpp.py COM4 0
+
 import ctypes
 import sys
 
@@ -17,19 +25,19 @@ def __main__():
     try:
         import serial
     except Exception as e:
-        mess = "Cannot import serial lib (did you do in cmd 'pip install pyserial?').\n"+"Error message: "+str(e)
-        ctypes.windll.user32.MessageBoxW(None, mess, "Error!", 1)
+        mess = "Помилка при імпорті бібліотек (можливо, ви забули встановити pyserial?').\n"+"Опис помилки: "+str(e)
+        ctypes.windll.user32.MessageBoxW(None, mess, "Помилка!", 1)
 
     if (len(sys.argv)<2):
-        mess = "Bad parameters. Use '"+__file__+" COMXXX 1' to open, '"+__file__+" COMXXX 0' to close."
-        ctypes.windll.user32.MessageBoxW(None, mess, "Error!", 1)
+        mess = "Невірні параметри виклику. Потрібно: '"+__file__+" COMXXX 1' щоб відкрити, '"+__file__+" COMXXX 0' щоб закрити."
+        ctypes.windll.user32.MessageBoxW(None, mess, "Помилка!", 1)
         exit()
 
     try:
         port = serial.Serial(sys.argv[1], PORT_SPEED, serial.EIGHTBITS, serial.PARITY_EVEN, serial.STOPBITS_ONE)
     except Exception as e:
-        mess = "Error when try to open port:"+sys.argv[1]+"\n"+"Error message: "+str(e)
-        ctypes.windll.user32.MessageBoxW(None, mess, "Error!", 1)
+        mess = "Помилка відкриття СОМ-порта:"+sys.argv[1]+"\n"+"Опис помилки: "+str(e)
+        ctypes.windll.user32.MessageBoxW(None, mess, "Помилка!", 1)
         exit()
     try:
         if (sys.argv[2]=="1"):
@@ -38,13 +46,13 @@ def __main__():
             if (sys.argv[2]=="0"):
                 port.write(CLOSE_MESSAGE)
             else:
-                mess = "Bad parameter 2 (use only 1 to open, 0 to close).\n"
-                ctypes.windll.user32.MessageBoxW(None, mess, "Error!", 1)
+                mess = "Невірний параметр 2 (використовуйте 1 щоб відкрити, 0 щоб закрити).\n"
+                ctypes.windll.user32.MessageBoxW(None, mess, "Помилка!", 1)
                 port.close()
                 exit()
     except Exception as e:
-        mess = "Error when writing the message to the port.\n"+"Error message: "+str(e)
-        ctypes.windll.user32.MessageBoxW(None, mess, "Error!", 1)
+        mess = "Помилка при спробі записати в порт.\n"+"Опис помилки: "+str(e)
+        ctypes.windll.user32.MessageBoxW(None, mess, "Помилка!", 1)
         port.close()
         exit() 
     port.close()
