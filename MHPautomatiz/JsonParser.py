@@ -13,8 +13,6 @@ import json
 ##    IsGoodsItem = 3
 ##jstring = '[{"_UOMId":1,"_UOMName":"oo"},{"_UOMId":2,"_UOMName":"aa"}]'
 
-#ParseUomArr = 
-
 def ParseUom(jstr):
     res = []
     jobj = json.loads(jstr)
