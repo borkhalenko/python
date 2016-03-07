@@ -1,0 +1,18 @@
+python sqlcommand.py ' {
+  "server": "192.168.10.108",
+  "user": "sa",
+  "password": "6502",
+  "dbname": "mhptest",
+  "tabname": "user",
+  "key_name": "user_name",
+  "data": [
+    {
+      "user_number": "1",
+      "user_name": "Oleg"
+    },
+    {
+      "user_number": "2",
+      "user_name": "San"
+    }
+  ]
+}
