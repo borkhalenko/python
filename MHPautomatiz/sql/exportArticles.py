@@ -14,8 +14,7 @@ from sqlsettings import sqldbname
 import os
 import sys
 import ctypes
-import json
-import 
+import xml.etree.ElementTree as ET
 
 SHOW_MESSAGEBOX = True
 ERR_TO_FILE = False
@@ -51,9 +50,19 @@ def Finalise():
 def __main__():
     current_dir = os.path.dirname(os.path.realpath(__file__))
     files_dir = current_dir+"\E\Articles";
-    for file in os.scandir(files_dir):
-        if file.is_file():
-            print(file.name)
+    files = files_txt = [i for i in os.listdir(files_dir) if i.endswith('.xml')]
+    for file in files:
+        try:
+            tree = ET.parse(os.path.join(files_dir, file))
+            root = tree.getroot()
+##            for art in root.iter('Article'):
+##                print(art.attrib[articl_number])
+##                print(art.attrib[articl_name])
+##                print(art.attrib[act_pass])
+            for child in root:
+                print(child.tag, child.attrib)
+        except Exception as e:
+            Report("Error when parsing an xml files. Message: "+str(e))
 __main__()
     
     

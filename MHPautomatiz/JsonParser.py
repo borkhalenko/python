@@ -29,7 +29,8 @@ def ParseGoodsCategories(jstr):
             TopGoodsCategoryId = item['_TopGoodsCategoryId']
         res.append(str(item['_GoodsCategoryId'])+";"
                    +str(item['_GoodsCategoryName'])+";"
-                   +str(TopGoodsCategoryId)+";")
+                   +str(TopGoodsCategoryId)+";"
+                   +str(item['_GoodsCategoryFullPath']+";")
     return res
 
 def ParseGoodsItems(jstr):
